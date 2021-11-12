@@ -13,12 +13,12 @@ You are not allowed to collaborate during the sprint challenge.
 In this challenge you will create a login page and request a token from the server that you'll use to send all other requests to the server. You will then be able to fetch the article data array, update data, and delete data.
 
 ## Project Setup
-[ ] Run npm install to install your dependencies.
-[ ]  Run npm start to run your frontend and backend code automatically.
-[ ]  Note your backend code will run automatically when your run npm start. There is no need to seperately run a server.js file and no means to test the server through postman or the browser. Feel free to ignore any messages related to MSW or mock service workers.
+[x] Run npm install to install your dependencies.
+[x]  Run npm start to run your frontend and backend code automatically.
+[x]  Note your backend code will run automatically when your run npm start. There is no need to separately run a server.js file and no means to test the server through postman or the browser. Feel free to ignore any messages related to MSW or mock service workers.
 
 ## Project Instructions
-In this project, you will demonstrate your mastery of these skills by creating **a login page** and **basic CRUD application.** You will implement basic security using **token authentication** and build private routes within the applcation.
+In this project, you will demonstrate your mastery of these skills by creating **a login page** and **basic CRUD application.** You will implement basic security using **token authentication** and build private routes within the application.
  
 ## Project Requirements
 
@@ -70,7 +70,7 @@ In this project, you will demonstrate your mastery of these skills by creating *
 > *Add the following tests within Article.test.js.*
 * [ ] Build a test that shows the `Article` component, given the correct props, can render without errors.
 * [ ] Build a test that shows that when a correctly formatted article is passed into the `Article` component, the correct headline, author, summary and body are displayed.
-* [ ] The `Article` component should display "Associated Press" when an author attribute is not avalible. Build a test that verifies that that is true.
+* [ ] The `Article` component should display "Associated Press" when an author attribute is not available. Build a test that verifies that that is true.
 * [ ] Build a test that show that when the deleteButton is pressed on an Article, the handleDelete functional property is executed.
 
 > *Add the following tests within View.test.js.*
@@ -85,7 +85,7 @@ In this project, you will demonstrate your mastery of these skills by creating *
 * It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 
 ### API Documentation
-* **[POST]** * to `http://localhost:5000/api/login`: returns a the current authenication information of the user. Pass in the following credentials as the `body` of the request: `{ username: 'Lambda', password: 'School' }` for a successful login.
+* **[POST]** * to `http://localhost:5000/api/login`: returns a the current authentication information of the user. Pass in the following credentials as the `body` of the request: `{ username: 'Lambda', password: 'School' }` for a successful login.
 
 * **[POST]** * to `http://localhost:5000/api/logout`: returns the expired authentication information of the user.
 
@@ -112,7 +112,7 @@ In this project, you will demonstrate your mastery of these skills by creating *
 ```
 
 ## Submission format
-* [ ] Submit via Codegrade by commiting and pushing any new changes to **your main branch.**
+* [ ] Submit via Codegrade by committing and pushing any new changes to **your main branch.**
 * [ ] Check Codegrade before the deadline to compare its results against your local tests.
 * [ ] Check Codegrade on the days following the Sprint Challenge for reviewer feedback. For more information on how to access and read your feedback, check [here](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
 * [ ] New commits will be evaluated by Codegrade if pushed before the sprint challenge deadline.

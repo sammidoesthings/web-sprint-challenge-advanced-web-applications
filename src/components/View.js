@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 import Article from './Article';
 import EditForm from './EditForm';
@@ -9,10 +10,35 @@ const View = (props) => {
     const [editing, setEditing] = useState(false);
     const [editId, setEditId] = useState();
 
+    useEffect(() => {
+        const getArticles = async () => {
+            const articleResponse = await articleService();
+            setArticles(articleResponse.data);
+        };
+        getArticles();
+    }, []);
+
     const handleDelete = (id) => {
+        axiosWithAuth()
+            .delete(`http://localhost:5000/api/articles${id}`)
+            .then((response) => {
+                setArticles(response.data);
+            })
+            .catch((error) => {
+                console.error('Failed to delete article!', error);
+            });
     }
 
     const handleEdit = (article) => {
+        axiosWithAuth()
+            .put(`http://localhost:5000/api/articles/${editId}`, article)
+            .then((response) => {
+                setEditing(false);
+                setArticles(response.data);
+            })
+            .catch((error) => {
+                console.error('Failed to edit article!', error);
+            });
     }
 
     const handleEditSelect = (id)=> {
@@ -31,14 +57,21 @@ const View = (props) => {
                 {
                     articles.map(article => {
                         return <ArticleDivider key={article.id}>
-                            <Article key={article.id} article={article} handleDelete={handleDelete} handleEditSelect={handleEditSelect}/>
+                            <Article 
+                                key={article.id} 
+                                article={article} 
+                                handleDelete={handleDelete} 
+                                handleEditSelect={handleEditSelect}/>
                         </ArticleDivider>
                     })
                 }
             </ArticleContainer>
             
             {
-                editing && <EditForm editId={editId} handleEdit={handleEdit} handleEditCancel={handleEditCancel}/>
+                editing && <EditForm 
+                                editId={editId}
+                                handleEdit={handleEdit} 
+                                handleEditCancel={handleEditCancel}/>
             }
         </ContentContainer>
     </ComponentContainer>);
