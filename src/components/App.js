@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 import PrivateRoute from './PrivateRoute';
 import styled from 'styled-components';
 
@@ -18,7 +18,7 @@ const App = () => {
         <Switch>
 
         <Route exact path="/">
-          <Redirect to="login"/>
+          <Redirect to="/login"/>
         </Route>
 
         <Route path="/login" component={Login}/>

@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import {useHistory} from 'react-router-dom';
 
 
 const initialValues = {
@@ -45,7 +46,8 @@ const Login = () => {
         loginPost();
     }
     
-    return(<ComponentContainer>
+    return (
+    <ComponentContainer>
         <ModalContainer>
             <h1>Welcome to Blogger Pro</h1>
             <h2>Please enter your account information.</h2>
@@ -75,7 +77,8 @@ const Login = () => {
                 <Button id="submit">Log In</Button>
             </FormGroup>
         </ModalContainer>
-    </ComponentContainer>);
+    </ComponentContainer>
+    );
 }
 
 export default Login;

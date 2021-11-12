@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import articleService from '../services/articleServices'
 
 import Article from './Article';
 import EditForm from './EditForm';
@@ -20,7 +21,7 @@ const View = (props) => {
 
     const handleDelete = (id) => {
         axiosWithAuth()
-            .delete(`http://localhost:5000/api/articles${id}`)
+            .delete(`http://localhost:5000/api/articles/${id}`)
             .then((response) => {
                 setArticles(response.data);
             })
